@@ -11,6 +11,7 @@ import UIKit
 class MemoListTableViewController: UITableViewController {
     
     
+    
     // 클로저: 반드시 따로 스위프트 문법 공부
     let formatter: DateFormatter = {
         
@@ -21,10 +22,32 @@ class MemoListTableViewController: UITableViewController {
         
         return f
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Update TableView
+        // tableView.reloadData()
+        // print(#function)
+    }
 
+    var token: NSObjectProtocol?
+    
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    // 앱 사이클, 초기화 코드 실행.
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
+            
+            self?.tableView.reloadData()
+            
+        }
     }
 
     // MARK: - Table view data source 테이블뷰를 구현하려면 반드시 필수 사용해야 할 메소드.

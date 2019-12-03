@@ -9,6 +9,9 @@
 import UIKit
 
 class ComposeViewController: UIViewController {
+    
+    // TextView 프로퍼티 선언.
+    @IBOutlet weak var memoTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,29 @@ class ComposeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    // 메모 작성 안하고 바로 화면 닫기 기능 구현.
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // 메모 작성 후 저장 기능 구현.
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        guard let memo = memoTextView.text, memo.count > 0 else {
+            alert(message: "메모를 입력하세요.")
+            return
+            
+        }
+        
+        let newMemo = Memo(content: memo)
+        Memo.dummyMemoList.append(newMemo)
+        
+        NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +52,11 @@ class ComposeViewController: UIViewController {
     }
     */
 
+}
+
+
+extension ComposeViewController {
+    
+    // 노티피케이션 == 라디오방송..
+    static let newMemoDidInsert = Notification.Name(rawValue: "새로운 메모.")
 }

@@ -11,6 +11,9 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // iOS 12까지는 풀스크린이지만 iOS13부터는 기본값이 Sheet여서 어떤 버전에서라도 창을 띄울려면 window를 적용해야한다.
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
