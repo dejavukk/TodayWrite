@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041B4C61239651380026248D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B4C60239651380026248D /* DetailViewController.swift */; };
 		04371B342396429A00F6D6E2 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04371B332396429A00F6D6E2 /* ComposeViewController.swift */; };
 		04371B362396460200F6D6E2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04371B352396460200F6D6E2 /* UIViewController+Alert.swift */; };
 		049086052394EF8C0036BDD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049086042394EF8C0036BDD2 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041B4C60239651380026248D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		04371B332396429A00F6D6E2 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		04371B352396460200F6D6E2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		049086012394EF8C0036BDD2 /* TodayWrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayWrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				04ACBEA123962F0400CD9A04 /* MemoListTableViewController.swift */,
 				04371B332396429A00F6D6E2 /* ComposeViewController.swift */,
 				04371B352396460200F6D6E2 /* UIViewController+Alert.swift */,
+				041B4C60239651380026248D /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				0490860F2394EF8C0036BDD2 /* TodayWrite.xcdatamodeld in Sources */,
 				04ACBEA023962D2000CD9A04 /* Model.swift in Sources */,
 				04371B362396460200F6D6E2 /* UIViewController+Alert.swift in Sources */,
+				041B4C61239651380026248D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
