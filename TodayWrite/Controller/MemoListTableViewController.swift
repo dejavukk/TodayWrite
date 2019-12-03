@@ -10,8 +10,6 @@ import UIKit
 
 class MemoListTableViewController: UITableViewController {
     
-    
-    
     // 클로저: 반드시 따로 스위프트 문법 공부
     let formatter: DateFormatter = {
         
@@ -36,6 +34,17 @@ class MemoListTableViewController: UITableViewController {
     deinit {
         if let token = token {
             NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = Memo.dummyMemoList[indexPath.row]
+                
+            }
         }
     }
     
