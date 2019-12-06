@@ -16,6 +16,7 @@
 		0490860F2394EF8C0036BDD2 /* TodayWrite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0490860D2394EF8C0036BDD2 /* TodayWrite.xcdatamodeld */; };
 		049086142394EF8D0036BDD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049086122394EF8D0036BDD2 /* LaunchScreen.storyboard */; };
 		0490861C2394F6A00036BDD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0490861B2394F6A00036BDD2 /* Assets.xcassets */; };
+		0496E9DC239A9E540072E6D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496E9DB239A9E540072E6D9 /* DataManager.swift */; };
 		04ACBEA023962D2000CD9A04 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACBE9F23962D2000CD9A04 /* Model.swift */; };
 		04ACBEA223962F0400CD9A04 /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACBEA123962F0400CD9A04 /* MemoListTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		049086132394EF8D0036BDD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		049086152394EF8D0036BDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0490861B2394F6A00036BDD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0496E9DB239A9E540072E6D9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		04ACBE9F23962D2000CD9A04 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		04ACBEA123962F0400CD9A04 /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 			children = (
 				049086042394EF8C0036BDD2 /* AppDelegate.swift */,
 				049086062394EF8C0036BDD2 /* SceneDelegate.swift */,
+				0496E9DA239A9E420072E6D9 /* Data */,
 				04ACBE9E23962CFD00CD9A04 /* Views */,
 				04ACBE9D23962CF500CD9A04 /* Model */,
 				04ACBE9C23962CED00CD9A04 /* Controller */,
@@ -75,6 +78,14 @@
 				0490860D2394EF8C0036BDD2 /* TodayWrite.xcdatamodeld */,
 			);
 			path = TodayWrite;
+			sourceTree = "<group>";
+		};
+		0496E9DA239A9E420072E6D9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0496E9DB239A9E540072E6D9 /* DataManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		04ACBE9C23962CED00CD9A04 /* Controller */ = {
@@ -184,6 +195,7 @@
 				0490860F2394EF8C0036BDD2 /* TodayWrite.xcdatamodeld in Sources */,
 				04ACBEA023962D2000CD9A04 /* Model.swift in Sources */,
 				04371B362396460200F6D6E2 /* UIViewController+Alert.swift in Sources */,
+				0496E9DC239A9E540072E6D9 /* DataManager.swift in Sources */,
 				041B4C61239651380026248D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
