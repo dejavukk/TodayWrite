@@ -73,7 +73,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxS-99-4Fm">
                                 <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="DVq-V4-uAh"/>
+                                    <barButtonItem systemItem="compose" id="DVq-V4-uAh">
+                                        <connections>
+                                            <segue destination="HB3-6Q-d9V" kind="presentation" id="kTN-b7-vQ3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C36-A4-343">
@@ -133,6 +137,9 @@
                         <viewLayoutGuide key="safeArea" id="gaq-eA-eMH"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="rYa-xH-B09"/>
+                    <connections>
+                        <outlet property="memoTableView" destination="C36-A4-343" id="8jA-gP-L3k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfE-Is-reJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,4 +226,7 @@
             <point key="canvasLocation" x="1086" y="-310"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kTN-b7-vQ3"/>
+    </inferredMetricsTieBreakers>
 </document>

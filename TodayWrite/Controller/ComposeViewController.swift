@@ -10,12 +10,26 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
+    var editTarget: Memo?
+    
     // TextView 프로퍼티 선언.
     @IBOutlet weak var memoTextView: UITextView!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let memo = editTarget {
+            navigationItem.title = "메모 편집"
+            memoTextView.text = memo.content
+            
+        } else {
+            
+            navigationItem.title = "새 메모"
+            memoTextView.text = ""
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -35,10 +49,19 @@ class ComposeViewController: UIViewController {
         
         // let newMemo = Memo(content: memo)
         // Memo.dummyMemoList.append(newMemo)
-        DataManager.shared.addNewMemo(memo)
         
-        NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        if let target = editTarget {
+            target.content = memo
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: ComposeViewController.memoDidChange, object: nil)
+            
+        } else {
+            DataManager.shared.addNewMemo(memo)
+            NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+
+        }
         
+        // DataManager.shared.addNewMemo(memo)
         dismiss(animated: true, completion: nil)
         
     }
@@ -60,4 +83,7 @@ extension ComposeViewController {
     
     // 노티피케이션 == 라디오방송..
     static let newMemoDidInsert = Notification.Name(rawValue: "새로운 메모.")
+    static let memoDidChange = Notification.Name(rawValue: "메모 편집")
+    
+    
 }

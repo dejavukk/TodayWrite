@@ -40,7 +40,7 @@ class DataManager {
             print(error)
         }
     }
-    
+    // 새로운 메모 생성 메소드 구현
     func addNewMemo(_ memo: String?) {
         
         let newMemo = Memo(context: mainContext)
