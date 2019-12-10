@@ -35,36 +35,34 @@ class ComposeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        navigationController?.presentationController?.delegate = self
-//
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.presentationController?.delegate = self
+
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.presentationController?.delegate = nil
         
+        
     }
     
     // 메모 작성 안하고 바로 화면 닫기 기능 구현.
-    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     // 메모 작성 후 저장 기능 구현.
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+    @IBAction func saveButton(_ sender: Any) {
         
         guard let memo = memoTextView.text, memo.count > 0 else {
             alert(message: "메모를 입력하세요.")
             return
             
         }
-        
-        // let newMemo = Memo(content: memo)
-        // Memo.dummyMemoList.append(newMemo)
         
         if let target = editTarget {
             target.content = memo
@@ -77,7 +75,6 @@ class ComposeViewController: UIViewController {
 
         }
         
-        // DataManager.shared.addNewMemo(memo)
         dismiss(animated: true, completion: nil)
         
     }
@@ -98,30 +95,27 @@ extension ComposeViewController: UITextViewDelegate {
     }
 }
 
-//extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
-//
-//    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-//
-//        let alert = UIAlertController(title: "알림", message: "편집한 내용을 저장할까요?", preferredStyle: .alert)
-//
-//        let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] (action) in
-//
-//            self?.saveButton(action)
-//
-//        }
-//        alert.addAction(okAction)
-//
-//
-//        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] (action) in
-//            self?.cancelButton(action)
-//        }
-//        alert.addAction(cancelAction)
-//
-//        present(alert, animated: true, completion: nil)
-//
-//
-//    }
-//}
+extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
+    
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        
+        let alert = UIAlertController(title: "알림", message: "편집할 내용을 저장할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] (action) in
+            self?.saveButton(action)
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] (action) in
+            self?.cancelButton(action)
+        }
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+}
+
 
 
 extension ComposeViewController {
