@@ -33,13 +33,14 @@ class DataManager {
         request.sortDescriptors = [sortByDateDesc]
         
         do {
-            
             memoList = try mainContext.fetch(request)
 
         } catch {
             print(error)
         }
     }
+    
+    
     // 새로운 메모 생성 메소드 구현
     func addNewMemo(_ memo: String?) {
         

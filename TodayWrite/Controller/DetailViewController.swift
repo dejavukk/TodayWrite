@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 메모 상세 보기 화면
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var memoTableView: UITableView!
@@ -19,7 +20,7 @@ class DetailViewController: UIViewController {
         f.dateStyle = .long
         f.timeStyle = .short
         f.locale = Locale(identifier: "Ko_kr")
-        
+    
         return f
     }()
     
@@ -28,7 +29,6 @@ class DetailViewController: UIViewController {
         
         if let vc = segue.destination.children.first as? ComposeViewController {
             vc.editTarget = memo
-            
         }
     }
     
@@ -66,13 +66,13 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDataSource {
     
+    // 표시할 셀의 숫자
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         
         return 2
     }
     
-    // 어떤 셀을 표시할지 표현하는 메소드
+    // 테이블뷰가 어떤 셀을 표시할지 표현하는 메소드, Switch분기구문으로 표현.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row {
