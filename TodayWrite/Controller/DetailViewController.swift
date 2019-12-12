@@ -24,6 +24,16 @@ class DetailViewController: UIViewController {
         return f
     }()
     
+    // 메모 공유 기능 구현
+    @IBAction func shareButton(_ sender: Any) {
+        
+        guard let memo = memo?.content else { return }
+        let vc = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
+    
     @IBAction func deleteButton(_ sender: Any) {
         
         let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)

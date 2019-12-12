@@ -85,7 +85,7 @@ class MemoListTableViewController: UITableViewController {
         return cell
     }
     
-    // 편집 기능 활성화,
+    // 편집 기능 활성화
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
         return true
