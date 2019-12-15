@@ -60,6 +60,7 @@ class ComposeViewController: UIViewController {
                 inset = strongSelf.memoTextView.scrollIndicatorInsets
                 inset.bottom = height
                 strongSelf.memoTextView.scrollIndicatorInsets = inset
+                
             }
         })
         
