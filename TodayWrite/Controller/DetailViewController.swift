@@ -25,10 +25,17 @@ class DetailViewController: UIViewController {
     }()
     
     // 메모 공유 기능 구현
-    @IBAction func shareButton(_ sender: Any) {
+    @IBAction func shareButton(_ sender: UIBarButtonItem) {
         
         guard let memo = memo?.content else { return }
         let vc = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+        
+
+        if let pc = vc.popoverPresentationController {
+            pc.barButtonItem = sender
+        }
+        
+        
         present(vc, animated: true, completion: nil)
         
     }
